@@ -1,15 +1,11 @@
-def find_common_participants(participants1, participants2, separator=','):
-    participants_list1 = participants1.split(separator)
-    participants_list2 = participants2.split(separator)
-
-    common_participants = list(set(participants_list1).intersection(participants_list2))
-    common_participants.sort()
-
-    return common_participants
-
+def find_common_participants(group1, group2, delimiter=','):
+    participants1 = set(group1.split(delimiter))
+    participants2 = set(group2.split(delimiter))
+    common_participants = list(participants1.intersection(participants2))
+    return sorted(common_participants)
 
 participants_first_group = "Иванов|Петров|Сидоров"
 participants_second_group = "Петров|Сидоров|Смирнов"
 
-participants = find_common_participants(participants_first_group, participants_second_group)
-print("Общие участники:", participants)
+common_participants = find_common_participants(participants_first_group, participants_second_group, delimiter='|')
+print(common_participants)
